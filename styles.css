@@ -132,6 +132,7 @@
   cursor: pointer;
   padding: 4px;
   line-height: 1;
+  z-index: 170;
   }
 .close-mobile-btn:hover {
   color: var(--teal-400);
