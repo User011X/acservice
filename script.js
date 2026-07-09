@@ -179,11 +179,21 @@
   }, { threshold: 0.15 });
   document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
-  // WhatsApp ღილაკის ეფექტი სქროლის დროს
+  // WhatsApp ღილაკი: დამალული hero სექციაში, ჩნდება პირველივე სქროლზე
   const waFloat = document.querySelector('.whatsapp-float');
-  if (waFloat) {
+  const heroSection = document.getElementById('top');
+  if (waFloat && heroSection) {
+    const heroObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        // hero აღარ ჩანს ეკრანზე => ღილაკი გამოჩნდეს
+        waFloat.classList.toggle('visible', !entry.isIntersecting);
+      });
+    }, { threshold: 0, rootMargin: '-1px 0px 0px 0px' });
+    heroObserver.observe(heroSection);
+
     let waScrollTimeout;
     window.addEventListener('scroll', () => {
+      if (!waFloat.classList.contains('visible')) return;
       waFloat.classList.add('is-scrolling');
       clearTimeout(waScrollTimeout);
       waScrollTimeout = setTimeout(() => {
