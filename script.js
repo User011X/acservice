@@ -154,14 +154,16 @@
 
   document.querySelectorAll('.faq-trigger').forEach(trigger => {
     trigger.addEventListener('click', () => {
-      const parent = trigger.parentElement;
-      const isActive = parent.classList.contains('active');
-      
-      document.querySelectorAll('.faq-item').forEach(item => item.classList.remove('active'));
-      
-      if (!isActive) {
-        parent.classList.add('active');
-      }
+
+        const parent = trigger.parentElement;
+
+        document.querySelectorAll('.faq-item').forEach(item => {
+            if (item !== parent) {
+                item.classList.remove('active');
+            }
+        });
+
+        parent.classList.toggle('active');
     });
   });
 

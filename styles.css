@@ -59,11 +59,34 @@
   .logo span{color:var(--teal-400); font-weight:500;}
   nav.main-nav{display:flex; gap:28px;}
   nav.main-nav a{
-    color:rgba(255,255,255,0.8); font-size:14.5px; font-weight:500;
-    padding:6px 0; border-bottom:2px solid transparent; 
-    transition:color .2s ease, border-color .2s ease;
-  }
-  nav.main-nav a:hover{color:var(--white); border-color:var(--amber-500);}
+    position:relative;
+    color:rgba(255,255,255,.8);
+    font-size:14.5px;
+    font-weight:500;
+    padding:6px 0;
+    transition:transform .2s ease;
+}
+
+  nav.main-nav a::after{
+      content:"";
+      position:absolute;
+      left:0;
+      bottom:-2px;
+      width:100%;
+      height:2px;
+      background:var(--amber-500);
+      transform:scaleX(0);
+      transform-origin:left;
+      transition:transform .2s ease;
+}
+
+  nav.main-nav a:hover{
+      transform:translateY(-1px);
+}
+
+  nav.main-nav a:hover::after{
+      transform:scaleX(1);
+}
   .header-actions{display:flex; align-items:center; gap:14px;}
   .lang-toggle{
     display:flex; border:1px solid rgba(255,255,255,0.2); border-radius:999px; overflow:hidden;
@@ -72,32 +95,53 @@
     padding:5px 11px;
     font-size:12px;
     font-weight:600;
-    color:rgba(255,255,255,0.92);
-    transition:color .2s ease, background-color .2s ease;
+    color:rgba(255,255,255,.92);
+    transition:transform .2s ease, opacity .2s ease;
 }
-  
+
   .lang-toggle button:hover{
-    color:var(--white);
+    transform:scale(1.05);
+    opacity:.9;
 }
 
   .lang-toggle button.active{
     background:var(--teal-700);
-    color:var(--white);
 }
   .phone-pill{
-    display:flex; align-items:center; gap:8px;
-    background:var(--amber-500); color:var(--navy-950);
-    padding:8px 16px; border-radius:999px; font-weight:700; font-size:14px;
-    white-space:nowrap; 
-    transition:background-color .2s ease, transform .2s ease;
-  }
-  .phone-pill:hover{background:var(--amber-600); transform:translateY(-1px);}
+    display:flex;
+    align-items:center;
+    gap:8px;
+    background:var(--amber-500);
+    color:var(--navy-950);
+    padding:8px 16px;
+    border-radius:999px;
+    font-weight:700;
+    font-size:14px;
+    white-space:nowrap;
+    transition:transform .2s ease, opacity .2s ease;
+    will-change:transform;
+}
+
+  .phone-pill:hover{
+    transform:translateY(-2px) scale(1.03);
+    opacity:.95;
+}
   .burger{
-    display:none; flex-direction:column; align-items:center; justify-content:center;
-    gap:5px; width:36px; height:36px; flex-shrink:0; border-radius:8px;
-    transition:background-color .2s ease;
-  }
-  .burger:hover{background:rgba(255,255,255,0.08);}
+    display:none;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:5px;
+    width:36px;
+    height:36px;
+    flex-shrink:0;
+    border-radius:8px;
+    transition:transform .2s ease;
+}
+
+  .burger:hover{
+    transform:scale(1.08);
+}
   .burger-line{
     width:20px; height:2px; background:var(--white); border-radius:2px;
     transition:transform .3s ease, opacity .3s ease;
@@ -125,32 +169,41 @@
   }
   .mobile-nav.open{transform:translateX(0);}
   .mobile-nav a{
-    color:rgba(255,255,255,0.85); font-size:16.5px; font-weight:600;
-    padding:14px 4px; border-bottom:1px solid rgba(255,255,255,0.07);
-    transition:color .2s ease, transform .2s ease;
-  }
-  .mobile-nav a:hover{color:var(--teal-400); transform:translateX(4px);}
+    color:rgba(255,255,255,.85);
+    font-size:16.5px;
+    font-weight:600;
+    padding:14px 4px;
+    border-bottom:1px solid rgba(255,255,255,.07);
+    transition:transform .2s ease, opacity .2s ease;
+}
+
+  .mobile-nav a:hover{
+    transform:translateX(6px);
+    opacity:.85;
+}
   .mobile-nav-phone{
     margin-top:20px; text-align:center; background:var(--amber-500); color:var(--navy-950)!important;
     border:none!important; border-radius:10px; padding:14px!important; font-weight:700;
   }
-  .close-mobile-btn {
-  position: absolute;
-  top: 20px;
-  right: 24px;
-  background: none;
-  border: none;
-  color: var(--white);
-  font-size: 28px;
-  cursor: pointer;
-  padding: 4px;
-  line-height: 1;
-  z-index: 170;
-  transition: color 0.2s ease;
-  }
-  .close-mobile-btn:hover {
-  color: var(--teal-400);
-  }
+  .close-mobile-btn{
+    position:absolute;
+    top:20px;
+    right:24px;
+    background:none;
+    border:none;
+    color:var(--white);
+    font-size:28px;
+    cursor:pointer;
+    padding:4px;
+    line-height:1;
+    z-index:170;
+    transition:transform .2s ease, opacity .2s ease;
+}
+
+  .close-mobile-btn:hover{
+    transform:rotate(90deg) scale(1.1);
+    opacity:.8;
+}
   .mobile-lang-toggle{
     display: flex !important; 
     margin-top: 30px;
@@ -161,18 +214,17 @@
     padding:8px 16px;
     font-size:14px;
     font-weight:600;
-    color:#ffffff !important;
-    transition:color .2s ease, background-color .2s ease;
+    color:#fff !important;
+    transition:transform .2s ease, opacity .2s ease;
 }
 
   .mobile-lang-toggle button:hover{
-    color:#ffffff !important;
-    background:rgba(255,255,255,.08);
+    transform:scale(1.05);
+    opacity:.9;
 }
 
   .mobile-lang-toggle button.active{
     background:var(--teal-700) !important;
-    color:#ffffff !important;
 }
 
   .mobile-nav{
@@ -416,12 +468,20 @@
   .faq-icon{font-size:18px; color:var(--teal-500); transition:transform .3s ease;}
   
   /* Changed max-height to a safer rendering flow or handled statically to prevent layout shifts */
-  .faq-content{max-height:0; overflow:hidden; transition:max-height .3s cubic-bezier(0, 1, 0, 1); padding:0 24px;}
+  .faq-content{
+    max-height:0;
+    overflow:hidden;
+    transition:max-height .3s ease;
+    padding:0 24px;
+}
   .faq-content p{padding-bottom:20px; font-size:14.5px; color:var(--slate-600); line-height:1.6;}
   .faq-item.active{border-color:var(--teal-400); box-shadow:var(--shadow);}
   .faq-item.active .faq-icon{transform:rotate(45deg);}
-  .faq-item.active .faq-content{max-height:1000px; transition:max-height .3s cubic-bezier(1, 0, 1, 0);}
-
+  .faq-item.active .faq-content{
+    max-height:300px;
+    opacity:1;
+    transform:scaleY(1);
+}
   .contact{padding:90px 0; background:var(--white);}
   .contact-grid{display:grid; grid-template-columns:0.9fr 1.1fr; gap:50px; align-items:start;}
   .contact-info{display:flex; flex-direction:column; gap:24px;}
