@@ -83,7 +83,7 @@
       q6: "How much does AC installation or cleaning cost?", a6: "The exact price depends on the unit's capacity (BTU) and work complexity. Standard cleaning has a fixed rate, while installation depends on pipe length. Call us for a quote.",
       c_eyebrow: "Contact Us", c_title: "Get in Touch Today", c_sub: "Fill out the form and our representative will contact you shortly to confirm details.",
       c_p: "Phone Number", c_a: "Service Area", c_a_d: "Tbilisi, Rustavi, Mtskheta",
-      f_name: "Full Name *", f_phone: "Phone Number *", f_service: "Required Service",
+      f_name: "Full Name *", f_phone: "Phone Number *", f_service: "Choose a service",
       f_o1: "Installation / Setup", f_o2: "Cleaning / Disinfection", f_o1_dem: "Dismantling & Relocation", f_o3: "Repair / Diagnostics", f_o4: "Freon Refill", f_o5: "PCB Repair & Restoration",
       f_msg: "Additional Comments (Optional)", f_btn: "Send Request",
       f_note: "Privacy guaranteed. We never share your data with third parties.",
