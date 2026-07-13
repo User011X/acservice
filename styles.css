@@ -30,6 +30,8 @@ html {
   scroll-behavior: smooth;
   overflow-x: hidden;
   width: 100%;
+  opacity: 0;
+  transition: opacity 0.15s ease-in;
 }
 
 body {
