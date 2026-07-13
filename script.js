@@ -184,13 +184,11 @@ document.addEventListener('click', (e) => {
 });
 
 document.querySelectorAll('.services, .process, .why, .faq').forEach(section => {
-  const items = section.querySelectorAll('.reveal');
-  requestAnimationFrame(() => {
-    items.forEach((el, i) => {
-      el.style.transitionDelay = `${(i % 4) * 90}ms`;
-    });
+  section.querySelectorAll('.reveal').forEach((el, i) => {
+    el.style.transitionDelay = `${(i % 4) * 90}ms`;
   });
 });
+
 const revealObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
