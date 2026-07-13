@@ -357,19 +357,11 @@ body.nav-locked {
   background: var(--teal-700) !important;
 }
 
-.mobile-nav {
-  will-change: transform;
-}
-
 .whatsapp-float {
   will-change: transform, opacity;
 }
 
-.hero-art svg {
-  will-change: transform;
-}
-
-.service-card {
+.service-card:hover {
   will-change: transform;
 }
 
@@ -475,10 +467,6 @@ body.nav-locked {
   position: relative;
   overflow: hidden;
   
-}
-
-.hero *{
-    animation-delay:1s;
 }
 
 .hero-grid {
@@ -740,7 +728,6 @@ body.nav-locked {
   opacity: 0.25;
   z-index: 0;
   pointer-events: none;
-  will-change: transform;
 }
 
 .services::before {
@@ -1630,5 +1617,59 @@ footer {
 
   .section-head h2 {
     font-size: 22px;
+  }
+}
+
+/* ===== Rendering work reduction for below-the-fold content =====
+   Tells the browser to skip layout/paint for these sections until
+   they're about to scroll into view. contain-intrinsic-size gives
+   it a placeholder height so scrollbar/position don't jump later. */
+.process,
+.why,
+.faq,
+.contact,
+footer {
+  content-visibility: auto;
+}
+
+.process {
+  contain-intrinsic-size: auto 700px;
+}
+
+.why {
+  contain-intrinsic-size: auto 600px;
+}
+
+.faq {
+  contain-intrinsic-size: auto 900px;
+}
+
+.contact {
+  contain-intrinsic-size: auto 1100px;
+}
+
+footer {
+  contain-intrinsic-size: auto 320px;
+}
+
+/* ===== Respect reduced-motion preference (and cut steady-state
+   animation/compositing cost for users who ask for it) ===== */
+@media (prefers-reduced-motion: reduce) {
+
+  .eyebrow .dot,
+  .glow-pulse,
+  .unit-float,
+  .blink-dot,
+  .flap,
+  .air-wave,
+  .services::before,
+  .services::after,
+  .whatsapp-float.visible,
+  .whatsapp-float.is-scrolling {
+    animation: none !important;
+  }
+
+  * {
+    transition-duration: 0.001ms !important;
   }
 }

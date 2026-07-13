@@ -108,6 +108,7 @@ function toggleMobileNav() {
 }
 
 function openMobileNav() {
+  mobileNav.style.willChange = 'transform';
   mobileNav.classList.add('open');
   mobileNavBackdrop.classList.add('open');
   burgerBtn.classList.add('active');
@@ -121,6 +122,10 @@ function closeMobileNav() {
   burgerBtn.classList.remove('active');
   burgerBtn.setAttribute('aria-expanded', 'false');
   document.body.classList.remove('nav-locked');
+  mobileNav.addEventListener('transitionend', function clearWillChange() {
+    mobileNav.style.willChange = 'auto';
+    mobileNav.removeEventListener('transitionend', clearWillChange);
+  });
 }
 
 window.addEventListener('resize', () => {
