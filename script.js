@@ -1,4 +1,3 @@
-  // თარგმანების ბაზა (i18n dictionary)
   const translations = {
     ka: {
       nav_services: "სერვისები", nav_process: "როგორ ვმუშაობთ", nav_why: "რატომ ჩვენ", nav_faq: "კითხვა-პასუხი", nav_contact: "კონტაქტი",
@@ -95,7 +94,6 @@
     }
   };
 
-  // მობილური მენიუს გახსნა/დახურვა
   const burgerBtn = document.querySelector('.burger');
   const mobileNav = document.getElementById('mobileNav');
   const mobileNavBackdrop = document.getElementById('mobileNavBackdrop');
@@ -125,12 +123,10 @@
     document.body.classList.remove('nav-locked');
   }
 
-  // ეკრანის ზომის შეცვლისას (მაგ. ტელეფონიდან დესკტოპზე rotate/resize), მენიუს დახურვა
   window.addEventListener('resize', () => {
     if (window.innerWidth > 960) closeMobileNav();
   });
 
-  // ენის შეცვლის ფუნქციონალი
   const langButtons = document.querySelectorAll('[data-set-lang]');
   langButtons.forEach(btn => {
     btn.addEventListener('click', () => {
@@ -156,7 +152,6 @@
     });
   });
 
-  // FAQ Accordion Functionality
   document.querySelectorAll('.faq-trigger').forEach(trigger => {
     trigger.addEventListener('click', () => {
       const parent = trigger.parentElement;
@@ -170,7 +165,6 @@
     });
   });
 
-  // Scroll-ზე გამოჩენის ანიმაცია (fade-up)
   document.querySelectorAll('.services, .process, .why, .faq').forEach(section => {
     const items = section.querySelectorAll('.reveal');
     items.forEach((el, i) => {
@@ -187,13 +181,11 @@
   }, { threshold: 0.15 });
   document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
-  // WhatsApp ღილაკი: დამალული hero სექციაში, ჩნდება პირველივე სქროლზე
   const waFloat = document.querySelector('.whatsapp-float');
   const heroSection = document.getElementById('top');
   if (waFloat && heroSection) {
     const heroObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
-        // hero აღარ ჩანს ეკრანზე => ღილაკი გამოჩნდეს
         waFloat.classList.toggle('visible', !entry.isIntersecting);
       });
     }, { threshold: 0, rootMargin: '-1px 0px 0px 0px' });
@@ -210,7 +202,6 @@
     }, { passive: true });
   }
 
-  // ფორმის გაგზავნის სიმულაცია
   function handleFormSubmit(event) {
     event.preventDefault();
     const successMsg = document.getElementById('successMsg');
@@ -220,3 +211,31 @@
       successMsg.style.display = 'none';
     }, 5000);
   }
+
+ document.addEventListener("DOMContentLoaded", function() {
+  const mapIframe = document.querySelector('iframe[title="AC Service Google Map"]');
+  
+  if (mapIframe) {
+    const realSrc = mapIframe.getAttribute('src');
+    if (realSrc) {
+      mapIframe.setAttribute('data-src', realSrc);
+      mapIframe.removeAttribute('src');
+    }
+
+    if ("IntersectionObserver" in window) {
+      const mapObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const lazyMap = entry.target;
+            lazyMap.src = lazyMap.getAttribute('data-src');
+            observer.unobserve(lazyMap);
+          }
+        });
+      }, { rootMargin: "200px 0px" }); 
+      
+      mapObserver.observe(mapIframe);
+    } else {
+      mapIframe.src = mapIframe.getAttribute('data-src');
+    }
+  }
+ }); 
