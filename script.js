@@ -44,7 +44,8 @@
       f_success: "✓ მოთხოვნა წარმატებით გაიგზავნა! ოპერატორი მალე დაგიკავშირდებათ.",
       f_desc: "პროფესიონალური ტექნიკური მომსახურება თბილისში 2019 წლიდან.",
       f_c1: "სერვისები", f_c2: "ნავიგაცია", f_c3: "სამუშაო საათები", f_hours: "ორშაბათი - კვირა",
-      f_copy: "© 2026 AC Service. ყველა უფლება დაცულია.", f_up: "ზემოთ ასვლა ↑"
+      f_copy: "© 2026 AC Service. ყველა უფლება დაცულია.", f_up: "ზემოთ ასვლა ↑",
+      f_msg_placeholder: "მოგვწერეთ მოკლედ..."
     },
     en: {
       nav_services: "Services", nav_process: "Our Process", nav_why: "Why Us", nav_faq: "FAQ", nav_contact: "Contact",
@@ -83,13 +84,14 @@
       c_eyebrow: "Contact Us", c_title: "Get in Touch Today", c_sub: "Fill out the form and our representative will contact you shortly to confirm details.",
       c_p: "Phone Number", c_a: "Service Area", c_a_d: "Tbilisi, Rustavi, Mtskheta",
       f_name: "Full Name *", f_phone: "Phone Number *", f_service: "Required Service",
-      f_o1: "Installation / Setup", f_o2: "Cleaning / Disinfection", f_o3: "Repair / Diagnostics", f_o4: "Freon Refill", f_o5: "PCB Repair & Restoration",
+      f_o1: "Installation / Setup", f_o2: "Cleaning / Disinfection", f_o1_dem: "Dismantling & Relocation", f_o3: "Repair / Diagnostics", f_o4: "Freon Refill", f_o5: "PCB Repair & Restoration",
       f_msg: "Additional Comments (Optional)", f_btn: "Send Request",
       f_note: "Privacy guaranteed. We never share your data with third parties.",
       f_success: "✓ Request sent successfully! Our operator will call you soon.",
       f_desc: "Professional technical AC services in Tbilisi since 2019.",
       f_c1: "Services", f_c2: "Navigation", f_c3: "Working Hours", f_hours: "Monday - Sunday",
-      f_copy: "© 2026 AC Service. All rights reserved.", f_up: "Scroll Up ↑"
+      f_copy: "© 2026 AC Service. All rights reserved.", f_up: "Scroll Up ↑",
+      f_msg_placeholder: "Write briefly..."
     }
   };
 
