@@ -87,11 +87,10 @@ header {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(10, 30, 43, 0.95);
-  backdrop-filter: blur(10px);
+  background: #0A1E2B;
+  backdrop-filter:none;
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
   min-height: 65px;
-  content-visibility: auto;
 }
 
 .nav-wrap {
@@ -475,6 +474,11 @@ body.nav-locked {
   padding: 80px 0 60px;
   position: relative;
   overflow: hidden;
+  
+}
+
+.hero *{
+    animation-delay:1s;
 }
 
 .hero-grid {
