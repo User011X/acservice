@@ -1,22 +1,38 @@
 # AC Service Tbilisi
 
-Professional air conditioning services in Tbilisi, Rustavi, and Mtskheta. Established in 2019.
+> Professional air conditioning installation, repair, cleaning, maintenance, and Freon refill services in Tbilisi, Rustavi, and Mtskheta, Georgia.
 
-- [Main Website](https://test-acservice.vercel.app/)
-- [Services & Solutions](https://test-acservice.vercel.app/#services)
-- [Work Process](https://test-acservice.vercel.app/#process)
-- [Why Choose Us](https://test-acservice.vercel.app/#why)
-- [FAQ & Tips](https://test-acservice.vercel.app/#faq)
-- [Contact & Booking](https://test-acservice.vercel.app/#contact)
+## Website
+
+- https://test-acservice.vercel.app/
+
+## About
+
+AC Service has provided residential and commercial air conditioner services since 2019. The company specializes in installation, maintenance, diagnostics, repair, antibacterial cleaning, and system relocation.
 
 ## Core Services
-- AC Installation & Setup
-- Dismantling & Relocation
-- Cleaning & Antibacterial Disinfection
-- Freon Refill & System Diagnostics
-- PCB Repair & Electronics Restoration
 
-## Contact Information
-- Website: https://test-acservice.vercel.app
-- Service Area: Tbilisi, Rustavi, Mtskheta, Georgia
-- Working Hours: Monday - Sunday
+- Air Conditioner Installation
+- Air Conditioner Dismantling & Relocation
+- Air Conditioner Cleaning & Disinfection
+- Freon Refill
+- Diagnostics & Repair
+- PCB & Electronic Board Repair
+
+## Service Area
+
+- Tbilisi
+- Rustavi
+- Mtskheta
+- Georgia
+
+## Languages
+
+- Georgian
+- English
+
+## Contact
+
+- Website: https://test-acservice.vercel.app/
+- Phone: +995 599 003 645
+- Working Hours: Monday–Sunday
