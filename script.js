@@ -225,18 +225,46 @@ if (waFloat && heroSection) {
   }, { passive: true });
 }
 
-function handleFormSubmit(event) {
+async function handleFormSubmit(event) {
   event.preventDefault();
 
-  const successMsg = document.getElementById('successMsg');
+  const form = document.getElementById("orderForm");
+  const successMsg = document.getElementById("successMsg");
+  const submitBtn = form.querySelector('button[type="submit"]');
 
-  successMsg.hidden = false;
+  submitBtn.disabled = true;
+  submitBtn.textContent = "იგზავნება...";
 
-  document.getElementById('orderForm').reset();
+  const formData = new FormData(form);
 
-  setTimeout(() => {
-    successMsg.hidden = true;
-  }, 5000);
+  try {
+    const response = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      body: formData
+    });
+
+    const result = await response.json();
+
+    if (result.success) {
+      successMsg.hidden = false;
+      form.reset();
+
+      setTimeout(() => {
+        successMsg.hidden = true;
+      }, 5000);
+
+    } else {
+      alert("დაფიქსირდა შეცდომა. სცადეთ მოგვიანებით.");
+      console.log(result);
+    }
+
+  } catch (error) {
+    console.error(error);
+    alert("ინტერნეტთან დაკავშირების პრობლემა.");
+  }
+
+  submitBtn.disabled = false;
+  submitBtn.textContent = "მოთხოვნის გაგზავნა";
 }
 
 document.addEventListener("DOMContentLoaded", function () {
