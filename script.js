@@ -232,13 +232,19 @@ async function handleFormSubmit(event) {
   const successMsg = document.getElementById("successMsg");
   const submitBtn = form.querySelector('button[type="submit"]');
 
-  submitBtn.disabled = true;
+  const originalText = submitBtn.textContent;
+
   submitBtn.textContent = "იგზავნება...";
+  submitBtn.disabled = true;
 
   const formData = new FormData(form);
-  for (const pair of formData.entries()) {
-    console.log(pair[0], pair[1]);
-  }
+
+  // Web3Forms access key
+  formData.append("access_key", "4262888e-2d02-4739-8638-fc8edec05091");
+
+  // წერილის სათაური
+  formData.append("subject", "ახალი შეკვეთა საიტიდან");
+
   try {
     const response = await fetch("https://api.web3forms.com/submit", {
       method: "POST",
@@ -248,6 +254,7 @@ async function handleFormSubmit(event) {
     const result = await response.json();
 
     if (result.success) {
+
       successMsg.hidden = false;
       form.reset();
 
@@ -256,17 +263,17 @@ async function handleFormSubmit(event) {
       }, 5000);
 
     } else {
-      alert("დაფიქსირდა შეცდომა. სცადეთ მოგვიანებით.");
       console.log(result);
+      alert("შეცდომა: " + result.message);
     }
 
   } catch (error) {
     console.error(error);
-    alert("ინტერნეტთან დაკავშირების პრობლემა.");
+    alert("გაგზავნისას მოხდა შეცდომა");
   }
 
+  submitBtn.textContent = originalText;
   submitBtn.disabled = false;
-  submitBtn.textContent = "მოთხოვნის გაგზავნა";
 }
 
 document.addEventListener("DOMContentLoaded", function () {
