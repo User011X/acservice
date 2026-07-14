@@ -236,7 +236,9 @@ async function handleFormSubmit(event) {
   submitBtn.textContent = "იგზავნება...";
 
   const formData = new FormData(form);
-
+  for (const pair of formData.entries()) {
+    console.log(pair[0], pair[1]);
+  }
   try {
     const response = await fetch("https://api.web3forms.com/submit", {
       method: "POST",
